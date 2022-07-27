@@ -20,7 +20,7 @@ jobs:
           registry-url: https://npm.pkg.github.com
 
       - name: Create a package called @${{ github.repository }}
-      - run: |
+        run: |
           echo '{
             "name": "@jcansdale-test/npm-publish-with-bin",
             "version": "1.0.0",
