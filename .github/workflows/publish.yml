@@ -20,9 +20,27 @@ jobs:
           registry-url: https://npm.pkg.github.com
 
       - name: Create a package called @${{ github.repository }}
-        run: npm init --scope ${{ github.repository_owner }} -y
-
-      - run: cat package.json
+      - run: |
+          echo `{
+            "name": "@jcansdale-test/npm-publish-with-bin",
+            "version": "1.0.0",
+            "description": "Example publishing an npm package.",
+            "main": "index.js",
+            "scripts": {
+              "test": "echo \"Error: no test specified\" && exit 1"
+            },
+            "repository": {
+              "type": "git",
+              "url": "git+https://github.com/jcansdale-test/npm-publish-with-bin.git"
+            },
+            "keywords": [],
+            "author": "",
+            "license": "ISC",
+            "bugs": {
+              "url": "https://github.com/jcansdale-test/npm-publish-with-bin/issues"
+            },
+            "homepage": "https://github.com/jcansdale-test/npm-publish-with-bin#readme"
+          }` > package.json
 
       - name: Add index.js to package
         run: echo 'exports.sayHello = () => { console.log("Hello from ${{ github.repository }}!") }' > index.js
