@@ -26,7 +26,9 @@ jobs:
             "version": "1.0.0",
             "description": "Example publishing an npm package.",
             "main": "index.js",
-            "bin": "foo",
+            "bin": {
+              "verify-exports": "bin/index"
+            },
             "scripts": {
               "test": "echo \"Error: no test specified\" && exit 1"
             },
