@@ -60,7 +60,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: View the package
-        run: npm view @jcansdale-test/npm-publish-with-bin --json
+        run: npm view @jcansdale-test/npm-publish-with-bin@${{ env.VERSION }} --json
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
