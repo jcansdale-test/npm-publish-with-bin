@@ -59,6 +59,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
+      - name: View the package
+        run: npm view @jcansdale-test/npm-publish-with-bin --json
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+
       - name: Trigger npm-install workflow
         if: ${{ env.GITHUB_TOKEN != null }}
         run: gh api repos/${{ github.repository_owner }}/npm-install/dispatches <<< '{"event_type":"build"}' --input -
