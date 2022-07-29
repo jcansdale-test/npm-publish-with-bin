@@ -55,7 +55,7 @@ jobs:
         run: npm pack
 
       - name: Publish the package
-        run: npm publish
+        run: npm publish --tag canary
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
